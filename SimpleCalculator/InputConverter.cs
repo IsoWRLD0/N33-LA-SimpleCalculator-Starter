@@ -1,12 +1,14 @@
-﻿using System;
+using System;
 
 namespace SimpleCalculator
 {
     public class InputConverter
     {
-        public double ConvertInputToNumeric(string argTextInput)
+        // Change to a static method //
+        public static int ConvertInputToNumeric(string argTextInput)
         {
-            return 0;
+            // convert the string to an int //
+            return int.Parse(argTextInput);
         }
     }
 }
