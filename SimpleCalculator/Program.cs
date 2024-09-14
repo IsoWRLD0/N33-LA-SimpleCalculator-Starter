@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SimpleCalculator
 {
@@ -6,28 +6,50 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            try
+            
+
+            Console.WriteLine("Enter the first number:");
+            double firstNumber = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the operation (+ (add), - (subtract), * (multiply), / (divide), ^ (power):");
+            string operation = Console.ReadLine().ToLower();
+
+            Console.WriteLine("Enter the second number:");
+            double secondNumber = double.Parse(Console.ReadLine());
+
+            CalculatorEngine calculator = new CalculatorEngine();
+
+            double result = 0;
+
+            switch (operation)
             {
-                // Class to convert user input
-                InputConverter inputConverter = new InputConverter();
-
-                // Class to perform actual calculations
-                CalculatorEngine calculatorEngine = new CalculatorEngine();
-
-                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                string operation = Console.ReadLine();
-
-                double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
-
-                Console.WriteLine(result);
-
-            } catch (Exception ex)
-            {
-                // Normally, we'd log this error to a file.
-                Console.WriteLine(ex.Message);
+                case "+":
+                case "add":
+                    result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    break;
+                case "-":
+                case "subtract":
+                    result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    break;
+                case "*":
+                case "multiply":
+                    result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    break;
+                case "/":
+                case "divide":
+                    result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    break;
+                case "power":
+                case "pow":
+                    result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    break;
+                default:
+                    Console.WriteLine("Invalid operation");
+                    return;
             }
 
+            Console.WriteLine("{0} {1} {2} equals {3}", firstNumber, operation, secondNumber, result);
+            Console.ReadLine();
         }
     }
 }
