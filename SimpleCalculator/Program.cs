@@ -42,6 +42,8 @@ namespace SimpleCalculator
                 case "power":
                 case "pow":
                     result = calculator.Calculate(operation, firstNumber, secondNumber);
+                    Console.WriteLine("{0} to the power of {1} is {2}", firstNumber, secondNumber, result);
+                    Console.ReadLine();
                     break;
                 default:
                     Console.WriteLine("Invalid operation");
