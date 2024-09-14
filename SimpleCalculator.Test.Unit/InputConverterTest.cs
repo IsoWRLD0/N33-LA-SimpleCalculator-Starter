@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SimpleCalculator.Test.Unit
@@ -23,6 +23,28 @@ namespace SimpleCalculator.Test.Unit
             string inputNumber = "*";
             double convertedNumber = _inputConverter.ConvertInputToNumeric(inputNumber);
             Assert.AreEqual(2, convertedNumber);
+        }
+    }
+
+    public class InputConverter
+    {
+        public InputConverter()
+        {
+            
+        }
+
+        public double ConvertInputToNumeric(string input)
+        {
+           
+            double result;
+            if (double.TryParse(input, out result))
+            {
+                return result;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid input");
+            }
         }
     }
 }
